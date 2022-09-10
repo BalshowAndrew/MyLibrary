@@ -1,6 +1,12 @@
 {% extends 'books/base.html' %}
 
 {% block content %}
-<h1>{{title}}</h1>
-<p>Подробная информация о книге</p>
+<h1>{{book.title}}</h1>
+
+{% if book.photo %}
+<p><img src="{{ book.photo.url }}"></p>
+<p>{{book.content}}</p>
+{% endif %}
+
+{{book.content|linebreaks}}
 {% endblock %}
