@@ -29,7 +29,6 @@ def book_list(request):
         'cats': cats,
         'menu': menu,
         'title': 'Список книг',
-        # 'cat_selected': 0,
     }
     return render(request, 'books/book_list.html', context=context)
 
@@ -37,10 +36,12 @@ def book_list(request):
 def show_content(request, slug):
     book = Books.objects.get(slug=slug)
     cats = Category.objects.all()
+    auth = Authors.objects.all()
 
     context = {
         'book': book,
         'cats': cats,
+        'auth': auth,
         'menu': menu,
         'title': 'Статья'
     }
@@ -56,9 +57,8 @@ def show_category(request, cat_id):
         'cats': cats,
         'menu': menu,
         'title': 'Список книг',
-        # 'cat_selected': cat_slug,
     }
-    return render(request, 'books/show_category.html', context=context)
+    return render(request, 'books/book_list.html', context=context)
 
 
 def contact(request):

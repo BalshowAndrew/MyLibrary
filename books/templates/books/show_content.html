@@ -1,12 +1,16 @@
 {% extends 'books/base.html' %}
 
 {% block content %}
-<h1>{{book.title}}</h1>
 
+<h4>Категория: {{book.cat}}</h4>
+<h1>{{book.title}}</h1>
+<h3>Автор: {{book.auth.get}}</h3>
+<h4>Год издания: {{book.publish_year}}</h4>
 {% if book.photo %}
-<p><img src="{{ book.photo.url }}"></p>
-<p>{{book.content}}</p>
+<p><img src="{{book.photo.url}}" class="img-rounded" width="170" height="200">
+{{book.content|linebreaks}}
+</p>
 {% endif %}
 
-{{book.content|linebreaks}}
+
 {% endblock %}

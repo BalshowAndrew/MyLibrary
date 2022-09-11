@@ -6,10 +6,11 @@
     {% for book in books %}
     <li>
         <h2>{{book.title}}</h2>
+        <p><img src="{{book.photo.url}}" class="img-rounded" width="170" height="200"></p>
         <p>
             {{book.content|linebreaks|truncatewords:50}}
         </p>
-            <p class="link-read-post"><a href="{% url 'content' book.slug %}">Подробная информация</a> </p>
+            <p class="link-read-post"><a href="{% url 'content' book.slug %}">Подробнее о книге</a> </p>
         <hr>
     </li>
     {% endfor %}
